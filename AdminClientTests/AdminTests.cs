@@ -100,5 +100,20 @@ namespace Tests
             for (int i = 0; i < names.Length; i++)
                 Assert.Equal(names[i], restList.ElementAt(i).Name);
         }
+
+        [Fact]
+        public void AddRestaurantTest()
+        {
+            AdminBackend.InitializeDatabase();
+
+            using var ctx = new RestaurantDbContext();
+            
+            Assert.Empty(ctx.Resturaunts);
+
+            
+            Assert.True(AdminBackend.AddNewRestaurant("NiceFood", "Halmstad", "0723492817"));
+            Assert.Single(ctx.Resturaunts);
+            Assert.Equal("NiceFood", ctx.Resturaunts.FirstOrDefault().Name);
+        }
     }
 }
