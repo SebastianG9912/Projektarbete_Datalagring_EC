@@ -83,7 +83,22 @@ namespace Tests
 
             for (int i = 0; i < names.Length; i++)
                 Assert.Equal(names[i], customerList.ElementAt(i).CustomerPrivateInfo.First_Name);
+            //TODO Lägg till assert för customerList.count == 3
             
+        }
+
+        [Fact]
+        public void ViewAllRestaurantsTest()
+        {
+            AdminBackend.InitializeDatabase();
+            Seed();
+
+            List<Restaurant> restList = AdminBackend.GetAllRestaurants();
+            string[] names = new[] {"NiceFood", "GreenCuisine"};
+
+            Assert.Equal(2, restList.Count);
+            for (int i = 0; i < names.Length; i++)
+                Assert.Equal(names[i], restList.ElementAt(i).Name);
         }
     }
 }

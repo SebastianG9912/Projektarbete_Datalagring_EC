@@ -33,5 +33,10 @@ namespace Backend.Data
                 .Include(c => c.CustomerPrivateInfo)
                 .ToList();
         }
+
+        public static List<Restaurant> GetAllRestaurants()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
