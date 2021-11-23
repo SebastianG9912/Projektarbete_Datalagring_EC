@@ -9,22 +9,20 @@ namespace Tests
 {
     public class AdminTests
     {
-        [Fact]
-        public void ResetDatabaseTest()
+        public void Seed()
         {
-            AdminBackend.InitializeDatabase();
             using var ctx = new RestaurantDbContext();
-
+            
             var newCustomers = new Customer[]
             {
                 new Customer()
                 {
                     CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Sebastian", Last_Name = "Gustafsson"}
-                }, 
+                },
                 new Customer()
                 {
                     CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Jakob", Last_Name = "Dennryd"}
-                }, 
+                },
                 new Customer()
                 {
                     CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Klara", Last_Name = "Bergman"}
@@ -52,7 +50,15 @@ namespace Tests
             ctx.Orders.AddRange(newOrders);
 
             ctx.SaveChanges();
+        }
 
+        [Fact]
+        public void ResetDatabaseTest()
+        {
+            AdminBackend.InitializeDatabase();
+            Seed();
+            
+            using var ctx = new RestaurantDbContext();
             Assert.Equal(3, ctx.Customers.Count());
             Assert.Equal(2, ctx.Resturaunts.Count());
             Assert.Single(ctx.Foodpacks);
