@@ -64,12 +64,26 @@ namespace Tests
             Assert.Single(ctx.Foodpacks);
             Assert.Single(ctx.Orders);
 
-            AdminBackend.InitializeDatabase();
+            AdminBackend.InitializeDatabase();//För reset
 
             Assert.Empty(ctx.Customers);
             Assert.Empty(ctx.Resturaunts);
             Assert.Empty(ctx.Foodpacks);
             Assert.Empty(ctx.Orders);
+        }
+
+        [Fact]
+        public void ViewAllCustomersTest()
+        {
+            AdminBackend.InitializeDatabase();
+            Seed();
+
+            List<Customer> customerList = AdminBackend.GetAllCustomers();
+            string[] names = new[] {"Sebastian", "Jakob", "Klara"};
+
+            for (int i = 0; i < names.Length; i++)
+                Assert.Equal(names[i], customerList.ElementAt(i).CustomerPrivateInfo.First_Name);
+            
         }
     }
 }

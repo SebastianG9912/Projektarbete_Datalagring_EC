@@ -4,6 +4,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Backend.Model;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
 namespace Backend.Data
@@ -19,6 +20,11 @@ namespace Backend.Data
         }
 
         public static bool LogIn(string username, string password)
+        {
+            throw new NotImplementedException();
+        }
+
+        public static List<Customer> GetAllCustomers()
         {
             throw new NotImplementedException();
         }
