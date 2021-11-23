@@ -21,7 +21,7 @@ namespace Backend.Data
         {
             optionsBuilder
                 .LogTo(m => Debug.WriteLine(m))
-                .UseSqlServer(@"server=(localdb)\MSSQLLocalDB;database=Inlmning2DB");
+                .UseSqlServer(@"server=(localdb)\MSSQLLocalDB;database=ProjektDB");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
