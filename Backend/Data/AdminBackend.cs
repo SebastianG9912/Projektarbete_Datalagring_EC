@@ -4,6 +4,7 @@ using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
 namespace Backend.Data
 {
@@ -11,7 +12,10 @@ namespace Backend.Data
     {
         public static void InitializeDatabase()
         {
-            throw new NotImplementedException();
+            using var ctx = new RestaurantDbContext();
+
+            ctx.Database.EnsureDeleted();
+            ctx.Database.EnsureCreated();
         }
 
         public static bool LogIn(string username, string password)
