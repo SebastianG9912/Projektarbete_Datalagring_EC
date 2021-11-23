@@ -36,7 +36,11 @@ namespace Backend.Data
 
         public static List<Restaurant> GetAllRestaurants()
         {
-            throw new NotImplementedException();
+            using var ctx = new RestaurantDbContext();
+
+            return ctx.Resturaunts
+                .Include(r => r.Foodpacks)
+                .ToList();
         }
     }
 }
