@@ -43,9 +43,18 @@ namespace Backend.Data
                 .ToList();
         }
 
-        public static bool AddNewRestaurant(string v1, string v2, string v3)
+        public static bool AddNewRestaurant(string name, string location, string phoneNumber)
         {
-            throw new NotImplementedException();
+            //TODO lägg till case där den här metoden returnerar false
+            using var ctx = new RestaurantDbContext();
+            ctx.Resturaunts.Add(new Restaurant()
+            {
+                Name = name,
+                Location = location,
+                Phone_number = phoneNumber
+            });
+            ctx.SaveChanges();
+            return true;
         }
     }
 }
