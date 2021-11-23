@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Backend.Model;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Migrations.Operations;
 
 namespace Backend.Data
@@ -26,7 +27,11 @@ namespace Backend.Data
 
         public static List<Customer> GetAllCustomers()
         {
-            throw new NotImplementedException();
+            using var ctx = new RestaurantDbContext();
+
+            return ctx.Customers
+                .Include(c => c.CustomerPrivateInfo)
+                .ToList();
         }
     }
 }
