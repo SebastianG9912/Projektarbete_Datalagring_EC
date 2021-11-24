@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Backend.Data;
 
 namespace WinFormsFrontend
 {
@@ -15,6 +16,11 @@ namespace WinFormsFrontend
         public AdminFormMenu()
         {
             InitializeComponent();
+        }
+
+        private void btnResetDB_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

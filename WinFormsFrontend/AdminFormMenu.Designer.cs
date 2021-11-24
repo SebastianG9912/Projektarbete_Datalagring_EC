@@ -43,6 +43,7 @@
             this.btnResetDB.TabIndex = 0;
             this.btnResetDB.Text = "Reset database";
             this.btnResetDB.UseVisualStyleBackColor = true;
+            this.btnResetDB.Click += new System.EventHandler(this.btnResetDB_Click);
             // 
             // btnViewUsers
             // 
