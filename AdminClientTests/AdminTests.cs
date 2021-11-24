@@ -9,55 +9,15 @@ namespace BackendTests
 {
     public class AdminTests
     {
-        public void Seed()//TODO ändra till att vara konstruktor, resetta databasen också
+        public AdminTests()
         {
-            using var ctx = new RestaurantDbContext();
-            
-            var newCustomers = new Customer[]
-            {
-                new Customer()
-                {
-                    CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Sebastian", Last_Name = "Gustafsson"}
-                },
-                new Customer()
-                {
-                    CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Jakob", Last_Name = "Dennryd"}
-                },
-                new Customer()
-                {
-                    CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Klara", Last_Name = "Bergman"}
-                }
-            };
-            ctx.Customers.AddRange(newCustomers);
-
-            var newRestaurants = new Restaurant[]
-            {
-                new Restaurant(){Name = "NiceFood", Location = "Eldsberga", Phone_number = "0701234567"},
-                new Restaurant(){ Name = "GreenCuisine", Location = "Halmstad", Phone_number = "0729876543"}
-            };
-            ctx.Resturaunts.AddRange(newRestaurants);
-
-            var newFoodPacks = new Foodpack[]
-            {
-                new Foodpack(){Category = "Beef", Price = 70, Restaurant = newRestaurants[0]},
-            };
-            ctx.Foodpacks.AddRange(newFoodPacks);
-
-            var newOrders = new Order[]
-            {
-                new Order{Customer = newCustomers[1], Foodpacks = new List<Foodpack>(){newFoodPacks[0]}, OrderDateTime = DateTime.Now}
-            };
-            ctx.Orders.AddRange(newOrders);
-
-            ctx.SaveChanges();
+            AdminBackend.InitializeDatabase();
+            AdminBackend.Seed();
         }
 
         [Fact]
         public void ResetDatabaseTest()
         {
-            AdminBackend.InitializeDatabase();
-            Seed();
-            
             using var ctx = new RestaurantDbContext();
             Assert.Equal(3, ctx.Customers.Count());
             Assert.Equal(2, ctx.Resturaunts.Count());
@@ -75,9 +35,6 @@ namespace BackendTests
         [Fact]
         public void ViewAllCustomersTest()
         {
-            AdminBackend.InitializeDatabase();
-            Seed();
-
             List<Customer> customerList = AdminBackend.GetAllCustomers();
             string[] names = new[] {"Sebastian", "Jakob", "Klara"};
 
@@ -90,9 +47,6 @@ namespace BackendTests
         [Fact]
         public void ViewAllRestaurantsTest()
         {
-            AdminBackend.InitializeDatabase();
-            Seed();
-
             List<Restaurant> restList = AdminBackend.GetAllRestaurants();
             string[] names = new[] {"NiceFood", "GreenCuisine"};
 
@@ -104,13 +58,11 @@ namespace BackendTests
         [Fact]
         public void AddRestaurantTest()
         {
-            AdminBackend.InitializeDatabase();
-
+            AdminBackend.InitializeDatabase();//För att ta resetta databasen utan seeding
             using var ctx = new RestaurantDbContext();
             
             Assert.Empty(ctx.Resturaunts);
 
-            
             Assert.True(AdminBackend.AddNewRestaurant("NiceFood", "Halmstad", "0723492817"));
             Assert.Single(ctx.Resturaunts);
             Assert.Equal("NiceFood", ctx.Resturaunts.FirstOrDefault().Name);
