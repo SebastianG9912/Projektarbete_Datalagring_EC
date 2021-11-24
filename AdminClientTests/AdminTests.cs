@@ -21,8 +21,8 @@ namespace BackendTests
             using var ctx = new RestaurantDbContext();
             Assert.Equal(3, ctx.Customers.Count());
             Assert.Equal(2, ctx.Resturaunts.Count());
-            Assert.Single(ctx.Foodpacks);
-            Assert.Single(ctx.Orders);
+            Assert.Equal(2, ctx.Foodpacks.Count());
+            Assert.Equal(1, ctx.Orders.Count());
 
             AdminBackend.InitializeDatabase();//För reset
 
@@ -40,7 +40,9 @@ namespace BackendTests
 
             for (int i = 0; i < names.Length; i++)
                 Assert.Equal(names[i], customerList.ElementAt(i).CustomerPrivateInfo.First_Name);
-            //TODO Lägg till assert för customerList.count == 3
+
+            Assert.Equal("Sebastian", customerList.ElementAt(0).CustomerPrivateInfo.First_Name);
+            Assert.Equal(names.Length, customerList.Count);
             
         }
 
@@ -48,7 +50,7 @@ namespace BackendTests
         public void ViewAllRestaurantsTest()
         {
             List<Restaurant> restList = AdminBackend.GetAllRestaurants();
-            string[] names = new[] {"NiceFood", "GreenCuisine"};
+            string[] names = new[] { "NiceFood", "GreenCuisine" };
 
             Assert.Equal(2, restList.Count);
             for (int i = 0; i < names.Length; i++)
@@ -69,3 +71,8 @@ namespace BackendTests
         }
     }
 }
+
+
+
+
+

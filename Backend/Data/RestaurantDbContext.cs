@@ -34,41 +34,5 @@ namespace Backend.Data
                 .HasIndex(r => r.Name)
                 .IsUnique();
         }
-
-        public void Seed()//TODO flytta Seed till admin-klassen?
-        {
-            var resturaunts = new List<Restaurant>
-            {
-                new() {Location = "Halmstad", Name = "Noodle house", Phone_number = "12312356"},
-                new() {Location = "Halmstad", Name = "Wook huset", Phone_number = "1234556"}
-            };
-            AddRange(resturaunts);
-
-            var customers = new List<Customer>
-           {
-               new() {CustomerPrivateInfo = new CustomerPrivateInfo() {First_Name = "Jakob", Last_Name = "Dennryd"}},
-               new () {CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Bert", Last_Name = "Karlsson"}}
-
-           };
-            AddRange(customers);
-
-            var foodpacks = new List<Foodpack>
-           {
-               new () {Category = "Beef", Price = 70, Restaurant = resturaunts[0]},
-               new () {Category = "Chicken", Price = 70, Restaurant = resturaunts[1]},
-               new () { Category = "Beef", Price = 70, Restaurant = resturaunts[1]},
-               new () { Category = "Chicken", Price = 70, Restaurant = resturaunts[0] },
-           };
-            AddRange(foodpacks);
-
-
-            var orders = new List<Order>
-           {
-               new () {Customer = customers[1], Foodpacks = new List<Foodpack>(){foodpacks[0], foodpacks[1]},OrderDateTime = DateTime.Now}
-           };
-
-            AddRange(orders);
-
-        }
     }
 }
