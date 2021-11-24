@@ -34,11 +34,11 @@ namespace Backend.Data
             return query;
         }
 
-        public bool AddFoodbox(int restId, string mealCategory, int unitPrice)
+        public bool AddFoodbox(int restId, string mealCategory, int unitPrice, string name)
         {
             using var ctx = new RestaurantDbContext();
 
-            var box = new Foodpack() { Category = mealCategory, Price = unitPrice, Restaurant = ctx.Resturaunts.Find(restId) };
+            var box = new Foodpack() { Category = mealCategory, Price = unitPrice, Restaurant = ctx.Resturaunts.Find(restId), Name = name};
 
             ctx.Foodpacks.Add(box);
             ctx.SaveChanges();

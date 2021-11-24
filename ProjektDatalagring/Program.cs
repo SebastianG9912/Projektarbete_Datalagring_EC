@@ -4,7 +4,7 @@ using Backend.Data;
 RestaurantDbContext ctx = new RestaurantDbContext();
 ctx.Database.EnsureDeleted();
 ctx.Database.EnsureCreated();
-ctx.Seed();
+RestaurantDbContext.Seed();
 
 while (true)
 {
@@ -26,7 +26,8 @@ while (true)
         foreach (var box in rest.UnsoldFoodboxes(choice))
         {
             Console.WriteLine($"Pack ID: {box.Id}, " +
-                              $"Pack Category: {box.Category}");
+                              $"Pack Category: {box.Category}" +
+                              $"Pack Name: {box.Name}");
         }
 
         Console.ReadLine();
@@ -43,6 +44,7 @@ while (true)
         foreach (var box in rest.SoldFoodboxes(choice))
         {
             Console.WriteLine($"Pack ID: {box.Id}, " +
+                              $"Pack Name: {box.Name}" +
                               $"Pack Category: {box.Category}, " +
                               $"Order ID: {box.Order.Id}, " +
                               $"Pack Price: {box.Price} SEK");
@@ -58,10 +60,11 @@ while (true)
         var id = Convert.ToInt32(input1[0]);
         var category = input1[1];
         var price = Convert.ToInt32(input1[2]);
+        var name = input1[3];
 
         var RestaurantClient = new RestaurantClient();
 
-        RestaurantClient.AddFoodbox(id, category, price);
+        RestaurantClient.AddFoodbox(id, category, price, name);
     }
 
     else
