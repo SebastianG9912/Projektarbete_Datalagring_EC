@@ -35,7 +35,7 @@ namespace Backend.Data
                 .IsUnique();
         }
 
-        public void Seed()
+        public void Seed()//TODO flytta Seed till admin-klassen?
         {
             var resturaunts = new List<Restaurant>
             {

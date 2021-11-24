@@ -5,17 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using Backend.Data;
 
-namespace ProjektDatalagring
+namespace ConsoleFrontend
 {
     public class AdminClient
     {
         public static void Main(string[] args)
         {
             var key = new ConsoleKeyInfo();
-            bool loggedOut = true;
+            bool loggedOut = false;//TODO sätt till true vid implementerad inloggningssystem
             while (true)
             {
-                if (loggedOut)
+                if (loggedOut)//TODO ska det bara finnas ett admin lösen?(slipper roller)
                 {
                     Console.WriteLine("Please log in");
                     Console.WriteLine("Username: ");
@@ -39,11 +39,16 @@ namespace ProjektDatalagring
                     switch (key.Key)
                     {
                         case ConsoleKey.D1:
-
+                            AdminBackend.InitializeDatabase();
                             break;
 
                         case ConsoleKey.D2:
+                            
 
+                            foreach (var c in AdminBackend.GetAllCustomers())
+                            {
+                                Console.WriteLine($"#{c.Id} {c.CustomerPrivateInfo.First_Name} {c.CustomerPrivateInfo.Last_Name}, Phone number: {c.CustomerPrivateInfo}");
+                            }
                             break;
 
                         case ConsoleKey.D3:

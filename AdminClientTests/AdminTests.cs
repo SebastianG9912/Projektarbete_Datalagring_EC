@@ -5,11 +5,11 @@ using Xunit;
 using Backend.Data;
 using Backend.Model;
 
-namespace Tests
+namespace BackendTests
 {
     public class AdminTests
     {
-        public void Seed()
+        public void Seed()//TODO ändra till att vara konstruktor, resetta databasen också
         {
             using var ctx = new RestaurantDbContext();
             
