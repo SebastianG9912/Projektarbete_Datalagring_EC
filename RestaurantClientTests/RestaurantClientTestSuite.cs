@@ -17,10 +17,21 @@ namespace RestaurantClientTests
         }
 
         [Fact]
-        public void SeeSoldeMealsTest()
+        public void SeeSoldMealsTest()
         {
             List<Foodpack> list = RestaurantClient.SoldFoodboxes(1);
             string[] names = new[] { "Köttsoppa", "Grönsakssoppa" };
+
+            Assert.Equal(2, list.Count);
+            for (int i = 0; i < names.Length; i++)
+                Assert.Equal(names[i], list.ElementAt(i).Name);
+        }
+
+        [Fact]
+        public void SeeUnsoldMealsTest()
+        {
+            List<Foodpack> list = RestaurantClient.UnsoldFoodboxes(2);
+            string[] names = new[] { "Kycklinggryta", "Köttgryta" };
 
             Assert.Equal(2, list.Count);
             for (int i = 0; i < names.Length; i++)
