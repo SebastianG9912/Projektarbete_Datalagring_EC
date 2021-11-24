@@ -17,13 +17,12 @@ while (true)
 
     if (input == "1")
     {
-        var rest = new RestaurantClient();
 
         Console.WriteLine("Enter id");
 
         var choice = Convert.ToInt32(Console.ReadLine());
 
-        foreach (var box in rest.UnsoldFoodboxes(choice))
+        foreach (var box in RestaurantClient.UnsoldFoodboxes(choice))
         {
             Console.WriteLine($"Pack ID: {box.Id}, " +
                               $"Pack Category: {box.Category}" +
@@ -35,13 +34,12 @@ while (true)
 
     if (input == "2")
     {
-        var rest = new RestaurantClient();
 
         Console.WriteLine("Enter id");
 
         var choice = Convert.ToInt32(Console.ReadLine());
 
-        foreach (var box in rest.SoldFoodboxes(choice))
+        foreach (var box in RestaurantClient.SoldFoodboxes(choice))
         {
             Console.WriteLine($"Pack ID: {box.Id}, " +
                               $"Pack Name: {box.Name}" +

@@ -10,7 +10,7 @@ namespace Backend.Data
 {
     public class RestaurantClient
     {
-        public List<Foodpack> SoldFoodboxes(int restID)
+        public static List<Foodpack> SoldFoodboxes(int restID)
         {
             var ctx = new RestaurantDbContext();
 
@@ -22,7 +22,7 @@ namespace Backend.Data
             return query;
         }
 
-        public List<Foodpack> UnsoldFoodboxes(int restID)
+        public static List<Foodpack> UnsoldFoodboxes(int restID)
         {
             var ctx = new RestaurantDbContext();
 
