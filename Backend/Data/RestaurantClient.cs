@@ -34,7 +34,7 @@ namespace Backend.Data
             return query;
         }
 
-        public Foodpack AddFoodbox(int restId, string mealCategory, int unitPrice)
+        public bool AddFoodbox(int restId, string mealCategory, int unitPrice)
         {
             using var ctx = new RestaurantDbContext();
 
@@ -43,7 +43,7 @@ namespace Backend.Data
             ctx.Foodpacks.Add(box);
             ctx.SaveChanges();
 
-            return box;
+            return true;
         }
 
     }
