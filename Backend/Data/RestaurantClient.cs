@@ -15,35 +15,36 @@ namespace Backend.Data
             var ctx = new RestaurantDbContext();
 
             var query = ctx.Foodpacks
-                .Where(r => r.Restaurant.Id == restID)
-                .Include(r => r.Restaurant)
+                .Include(f => f.Order)
+                .Where(f => f.Restaurant.Id == restID && f.Order != null)
                 .ToList();
 
             return query;
         }
 
-        public List<Foodpack> OrderedFoodboxes(int restID)
+        public List<Foodpack> UnsoldFoodboxes(int restID)
         {
             var ctx = new RestaurantDbContext();
 
             var query = ctx.Foodpacks
-                .Where(f => f.Restaurant.Id == restID)
                 .Include(f => f.Order)
+                .Where(f => f.Restaurant.Id == restID && f.Order == null)
                 .ToList();
 
             return query;
         }
 
-        public Foodpack AddFoodbox(int id, string mealCategory, int unitPrice)
+        public Foodpack AddFoodbox(int restId, string mealCategory, int unitPrice)
         {
             using var ctx = new RestaurantDbContext();
 
-            var box = new Foodpack() { Category = mealCategory, Price = unitPrice, Restaurant = ctx.Resturaunts.Find(id) };
+            var box = new Foodpack() { Category = mealCategory, Price = unitPrice, Restaurant = ctx.Resturaunts.Find(restId) };
 
             ctx.Foodpacks.Add(box);
             ctx.SaveChanges();
 
             return box;
         }
+
     }
 }
