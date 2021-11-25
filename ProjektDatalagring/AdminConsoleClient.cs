@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConsoleFrontend
 {
-    public class AdminClient
+    public class AdminConsoleClient
     {
         public static void Main(string[] args)
         {

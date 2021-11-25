@@ -24,11 +24,11 @@ namespace WinFormsFrontend
 
             //Swap winforms window (Go to menu)
             var menu = new AdminFormMenu();
-            menu.Location = this.Location;
+            menu.Location = Location;
             menu.StartPosition = FormStartPosition.Manual;
-            menu.FormClosing += delegate{this.Show();};
+            menu.FormClosing += delegate{Show();};
             menu.Show();
-            this.Hide();
+            Hide();
         }
     }
 }

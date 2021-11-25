@@ -37,7 +37,7 @@
             // 
             // btnResetDB
             // 
-            this.btnResetDB.Location = new System.Drawing.Point(64, 57);
+            this.btnResetDB.Location = new System.Drawing.Point(12, 19);
             this.btnResetDB.Name = "btnResetDB";
             this.btnResetDB.Size = new System.Drawing.Size(174, 50);
             this.btnResetDB.TabIndex = 0;
@@ -47,41 +47,44 @@
             // 
             // btnViewUsers
             // 
-            this.btnViewUsers.Location = new System.Drawing.Point(64, 353);
+            this.btnViewUsers.Location = new System.Drawing.Point(12, 75);
             this.btnViewUsers.Name = "btnViewUsers";
             this.btnViewUsers.Size = new System.Drawing.Size(174, 50);
             this.btnViewUsers.TabIndex = 1;
             this.btnViewUsers.Text = "View all users";
             this.btnViewUsers.UseVisualStyleBackColor = true;
+            this.btnViewUsers.Click += new System.EventHandler(this.btnViewUsers_Click);
             // 
             // btnViewRestaurants
             // 
-            this.btnViewRestaurants.Location = new System.Drawing.Point(64, 508);
+            this.btnViewRestaurants.Location = new System.Drawing.Point(12, 131);
             this.btnViewRestaurants.Name = "btnViewRestaurants";
             this.btnViewRestaurants.Size = new System.Drawing.Size(174, 50);
             this.btnViewRestaurants.TabIndex = 2;
             this.btnViewRestaurants.Text = "View all restaurants";
             this.btnViewRestaurants.UseVisualStyleBackColor = true;
+            this.btnViewRestaurants.Click += new System.EventHandler(this.btnViewRestaurants_Click);
             // 
             // btnAddRestaurant
             // 
-            this.btnAddRestaurant.Location = new System.Drawing.Point(64, 202);
+            this.btnAddRestaurant.Location = new System.Drawing.Point(12, 187);
             this.btnAddRestaurant.Name = "btnAddRestaurant";
             this.btnAddRestaurant.Size = new System.Drawing.Size(174, 50);
             this.btnAddRestaurant.TabIndex = 3;
             this.btnAddRestaurant.Text = "Add a new restaurant";
             this.btnAddRestaurant.UseVisualStyleBackColor = true;
+            this.btnAddRestaurant.Click += new System.EventHandler(this.btnAddRestaurant_Click);
             // 
             // txtBoxInfo
             // 
             this.txtBoxInfo.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.txtBoxInfo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtBoxInfo.Location = new System.Drawing.Point(337, 19);
+            this.txtBoxInfo.Location = new System.Drawing.Point(192, 19);
             this.txtBoxInfo.Multiline = true;
             this.txtBoxInfo.Name = "txtBoxInfo";
             this.txtBoxInfo.ReadOnly = true;
             this.txtBoxInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtBoxInfo.Size = new System.Drawing.Size(435, 581);
+            this.txtBoxInfo.Size = new System.Drawing.Size(667, 581);
             this.txtBoxInfo.TabIndex = 5;
             // 
             // AdminFormMenu
@@ -89,8 +92,8 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.ClientSize = new System.Drawing.Size(791, 612);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(871, 612);
             this.Controls.Add(this.txtBoxInfo);
             this.Controls.Add(this.btnAddRestaurant);
             this.Controls.Add(this.btnViewRestaurants);

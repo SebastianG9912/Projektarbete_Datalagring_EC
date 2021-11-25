@@ -41,7 +41,7 @@
             this.labelUsername.AutoSize = true;
             this.labelUsername.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.labelUsername.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelUsername.Location = new System.Drawing.Point(187, 148);
+            this.labelUsername.Location = new System.Drawing.Point(53, 71);
             this.labelUsername.Name = "labelUsername";
             this.labelUsername.Size = new System.Drawing.Size(78, 20);
             this.labelUsername.TabIndex = 0;
@@ -51,7 +51,7 @@
             // 
             this.labelPassword.AutoSize = true;
             this.labelPassword.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.labelPassword.Location = new System.Drawing.Point(192, 207);
+            this.labelPassword.Location = new System.Drawing.Point(58, 130);
             this.labelPassword.Name = "labelPassword";
             this.labelPassword.Size = new System.Drawing.Size(73, 20);
             this.labelPassword.TabIndex = 1;
@@ -59,14 +59,14 @@
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(271, 145);
+            this.tbUsername.Location = new System.Drawing.Point(137, 68);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(125, 27);
             this.tbUsername.TabIndex = 2;
             // 
             // buttonLogIn
             // 
-            this.buttonLogIn.Location = new System.Drawing.Point(187, 237);
+            this.buttonLogIn.Location = new System.Drawing.Point(53, 160);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(209, 43);
             this.buttonLogIn.TabIndex = 3;
@@ -76,7 +76,7 @@
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(271, 204);
+            this.tbPassword.Location = new System.Drawing.Point(137, 127);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(125, 27);
             this.tbPassword.TabIndex = 4;
@@ -84,7 +84,7 @@
             // infoLabel
             // 
             this.infoLabel.AutoSize = true;
-            this.infoLabel.Location = new System.Drawing.Point(239, 94);
+            this.infoLabel.Location = new System.Drawing.Point(262, 129);
             this.infoLabel.Name = "infoLabel";
             this.infoLabel.Size = new System.Drawing.Size(0, 20);
             this.infoLabel.TabIndex = 5;
@@ -94,7 +94,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(605, 417);
+            this.ClientSize = new System.Drawing.Size(326, 263);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.buttonLogIn);
