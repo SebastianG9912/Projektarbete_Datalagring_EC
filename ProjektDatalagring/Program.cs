@@ -1,4 +1,4 @@
-﻿// See https://aka.ms/new-console-template for more information
+﻿
 using Backend.Data;
 
 RestaurantDbContext ctx = new RestaurantDbContext();
@@ -87,9 +87,4 @@ while (true)
         Console.WriteLine("Error input, try again");
         Console.ReadKey();
     }
-
-  
-
-
-    
 }

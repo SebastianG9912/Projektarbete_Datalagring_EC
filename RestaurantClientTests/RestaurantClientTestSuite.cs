@@ -13,14 +13,14 @@ namespace RestaurantClientTests
         {
             var ctx = new RestaurantClient();
 
-            Assert.True(ctx.AddFoodbox(1, "Beef", 45, "Köttsoppa"));
+            Assert.True(ctx.AddFoodbox(1, "Beef", 45, "CheeseBurger"));
         }
 
         [Fact]
         public void SeeSoldMealsTest()
         {
             List<Foodpack> list = RestaurantClient.SoldFoodboxes(1);
-            string[] names = new[] { "Köttsoppa", "Grönsakssoppa" };
+            string[] names = new[] { "Beef Pie", "Vegetable Pie" };
 
             Assert.Equal(2, list.Count);
             for (int i = 0; i < names.Length; i++)
@@ -31,7 +31,7 @@ namespace RestaurantClientTests
         public void SeeUnsoldMealsTest()
         {
             List<Foodpack> list = RestaurantClient.UnsoldFoodboxes(2);
-            string[] names = new[] { "Kycklinggryta", "Köttgryta" };
+            string[] names = new[] { "ChickenBurger", "ClassicBurger" };
 
             Assert.Equal(2, list.Count);
             for (int i = 0; i < names.Length; i++)

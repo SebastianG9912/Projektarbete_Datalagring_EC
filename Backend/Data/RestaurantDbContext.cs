@@ -65,10 +65,10 @@ namespace Backend.Data
 
             var newFoodPacks = new Foodpack[]
             {
-                new Foodpack(){Category = "Beef", Price = 70, Restaurant = newRestaurants[0], Name = "Köttsoppa"},
-                new Foodpack(){Category = "Vego", Price = 70, Restaurant = newRestaurants[0], Name = "Grönsakssoppa"},
-                new Foodpack(){Category = "Chicken", Price = 50, Restaurant = newRestaurants[1], Name = "Kycklinggryta"},
-                new Foodpack(){Category = "Beef", Price = 50, Restaurant = newRestaurants[1], Name = "Köttgryta"}
+                new Foodpack(){Category = "Beef", Price = 70, Restaurant = newRestaurants[0], Name = "Beef Pie"},
+                new Foodpack(){Category = "Vego", Price = 70, Restaurant = newRestaurants[0], Name = "Vegetable Pie"},
+                new Foodpack(){Category = "Chicken", Price = 50, Restaurant = newRestaurants[1], Name = "ChickenBurger"},
+                new Foodpack(){Category = "Beef", Price = 50, Restaurant = newRestaurants[1], Name = "ClassicBurger"}
             };
             ctx.Foodpacks.AddRange(newFoodPacks);
 
