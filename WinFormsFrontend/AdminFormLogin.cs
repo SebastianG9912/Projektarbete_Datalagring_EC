@@ -15,18 +15,23 @@ namespace WinFormsFrontend
             string username = tbUsername.Text;
             string password = tbPassword.Text;
 
-            /*bool couldLogIn = AdminBackend.LogIn(username, password);
-            if (!couldLogIn)//TODO skippa couldLogin, använd methodcall direkt
+            if (!AdminBackend.LogIn(username, password))
             {
-                infoLabel.Text = "Wrong username or password! Please try again";
+                lblInfo.Text = "Wrong username or password! Please try again";
                 return;
-            }*/
+            }
 
             //Swap winforms window (Go to menu)
             var menu = new AdminFormMenu();
             menu.Location = Location;
             menu.StartPosition = FormStartPosition.Manual;
-            menu.FormClosing += delegate{Show();};
+            menu.FormClosing += delegate
+            {
+                Show();
+                tbUsername.Text = "";
+                tbPassword.Text = "";
+                lblInfo.Text = "Please enter username and password below";
+            };
             menu.Show();
             Hide();
         }

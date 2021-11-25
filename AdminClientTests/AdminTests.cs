@@ -65,9 +65,14 @@ namespace BackendTests
             
             Assert.Empty(ctx.Resturaunts);
 
-            Assert.True(AdminBackend.AddNewRestaurant("NiceFood", "Halmstad", "0723492817"));
+            //När man kan lägga till ny restaurang
+            Assert.True(AdminBackend.AddNewRestaurant("NiceFood", "Halmstad", "07298765432"));
             Assert.Single(ctx.Resturaunts);
             Assert.Equal("NiceFood", ctx.Resturaunts.FirstOrDefault().Name);
+            //När man inte kan lägga till restaurang (upptaget namn/telefonnummer)
+            Assert.False(AdminBackend.AddNewRestaurant("NiceFood", "Göteborg", "0723456789"));//Namn upptaget
+            Assert.False(AdminBackend.AddNewRestaurant("Grenholmen", "Göteborg", "07298765432"));//Telefonnummer upptaget
+            Assert.False(AdminBackend.AddNewRestaurant("NiceFood", "Göteborg", "07298765432"));////Namn och telefonnummer upptaget
         }
     }
 }

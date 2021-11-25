@@ -72,28 +72,28 @@
             this.txtBoxName.Location = new System.Drawing.Point(375, 43);
             this.txtBoxName.Name = "txtBoxName";
             this.txtBoxName.Size = new System.Drawing.Size(233, 27);
-            this.txtBoxName.TabIndex = 3;
+            this.txtBoxName.TabIndex = 1;
             // 
             // txtBoxPhone
             // 
             this.txtBoxPhone.Location = new System.Drawing.Point(375, 131);
             this.txtBoxPhone.Name = "txtBoxPhone";
             this.txtBoxPhone.Size = new System.Drawing.Size(233, 27);
-            this.txtBoxPhone.TabIndex = 4;
+            this.txtBoxPhone.TabIndex = 3;
             // 
             // txtBoxLocation
             // 
             this.txtBoxLocation.Location = new System.Drawing.Point(375, 87);
             this.txtBoxLocation.Name = "txtBoxLocation";
             this.txtBoxLocation.Size = new System.Drawing.Size(233, 27);
-            this.txtBoxLocation.TabIndex = 5;
+            this.txtBoxLocation.TabIndex = 2;
             // 
             // btnAddRestaurant
             // 
             this.btnAddRestaurant.Location = new System.Drawing.Point(253, 198);
             this.btnAddRestaurant.Name = "btnAddRestaurant";
             this.btnAddRestaurant.Size = new System.Drawing.Size(134, 38);
-            this.btnAddRestaurant.TabIndex = 6;
+            this.btnAddRestaurant.TabIndex = 4;
             this.btnAddRestaurant.Text = "Add restaurant";
             this.btnAddRestaurant.UseVisualStyleBackColor = true;
             this.btnAddRestaurant.Click += new System.EventHandler(this.btnAddRestaurant_Click);

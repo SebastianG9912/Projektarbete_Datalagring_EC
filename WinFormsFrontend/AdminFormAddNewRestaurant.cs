@@ -29,7 +29,12 @@ namespace WinFormsFrontend
                 MessageBox.Show("Restaurant with supplied information already exists!\n" +
                                 "Please try again.","Already exists!",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
+            {
                 MessageBox.Show("Restaurant successfully added!", "Restaurant added", MessageBoxButtons.OK);
+                txtBoxName.Text = "";
+                txtBoxLocation.Text = "";
+                txtBoxPhone.Text = "";
+            }
         }
     }
 }

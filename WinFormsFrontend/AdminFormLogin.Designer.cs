@@ -34,6 +34,7 @@
             this.buttonLogIn = new System.Windows.Forms.Button();
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.infoLabel = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelUsername
@@ -62,11 +63,11 @@
             this.tbUsername.Location = new System.Drawing.Point(137, 68);
             this.tbUsername.Name = "tbUsername";
             this.tbUsername.Size = new System.Drawing.Size(125, 27);
-            this.tbUsername.TabIndex = 2;
+            this.tbUsername.TabIndex = 1;
             // 
             // buttonLogIn
             // 
-            this.buttonLogIn.Location = new System.Drawing.Point(53, 160);
+            this.buttonLogIn.Location = new System.Drawing.Point(53, 185);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(209, 43);
             this.buttonLogIn.TabIndex = 3;
@@ -79,7 +80,7 @@
             this.tbPassword.Location = new System.Drawing.Point(137, 127);
             this.tbPassword.Name = "tbPassword";
             this.tbPassword.Size = new System.Drawing.Size(125, 27);
-            this.tbPassword.TabIndex = 4;
+            this.tbPassword.TabIndex = 2;
             // 
             // infoLabel
             // 
@@ -89,12 +90,23 @@
             this.infoLabel.Size = new System.Drawing.Size(0, 20);
             this.infoLabel.TabIndex = 5;
             // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.lblInfo.Location = new System.Drawing.Point(4, 21);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(298, 20);
+            this.lblInfo.TabIndex = 6;
+            this.lblInfo.Text = "Please enter username and password below";
+            // 
             // AdminFormLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(326, 263);
+            this.Controls.Add(this.lblInfo);
             this.Controls.Add(this.infoLabel);
             this.Controls.Add(this.tbPassword);
             this.Controls.Add(this.buttonLogIn);
@@ -116,5 +128,6 @@
         private Button buttonLogIn;
         private TextBox tbPassword;
         private Label infoLabel;
+        private Label lblInfo;
     }
 }

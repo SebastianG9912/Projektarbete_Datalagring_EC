@@ -22,7 +22,11 @@ namespace Backend.Data
 
         public static bool LogIn(string username, string password)
         {
-            throw new NotImplementedException();
+            //Ignorerar om man använder stora eller små bokstäver vid inloggning TODO Ändra till att vara case sensitive?
+            //Sätter användarnamn och lösenord till att statiskt vara "admin" och "password"
+            if (username.Equals("admin", StringComparison.OrdinalIgnoreCase) && password.Equals("password", StringComparison.OrdinalIgnoreCase))
+                return true;
+            return false;
         }
 
         public static List<Customer> GetAllCustomers()
