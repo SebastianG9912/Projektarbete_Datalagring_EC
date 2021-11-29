@@ -11,6 +11,10 @@ namespace RestaurantClientTests
         [Fact]
         public void AddFoodBoxTest()
         {
+            //TODO fixa efter vi mergat
+            //AdminBackend.InitializeDatabase();
+            //Seed();
+
             var ctx = new RestaurantClient();
 
             Assert.True(ctx.AddFoodbox(1, "Beef", 45, "CheeseBurger"));
@@ -19,6 +23,10 @@ namespace RestaurantClientTests
         [Fact]
         public void SeeSoldMealsTest()
         {
+            //TODO fixa efter vi mergat
+            //AdminBackend.InitializeDatabase();
+            //Seed();
+
             List<Foodpack> list = RestaurantClient.SoldFoodboxes(1);
             string[] names = new[] { "Beef Pie", "Vegetable Pie" };
 
@@ -30,6 +38,10 @@ namespace RestaurantClientTests
         [Fact]
         public void SeeUnsoldMealsTest()
         {
+            //TODO fixa efter vi mergat
+            //AdminBackend.InitializeDatabase();
+            //Seed();
+
             List<Foodpack> list = RestaurantClient.UnsoldFoodboxes(2);
             string[] names = new[] { "ChickenBurger", "ClassicBurger" };
 
