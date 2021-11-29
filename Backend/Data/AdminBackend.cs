@@ -73,7 +73,11 @@ namespace Backend.Data
         /// <returns></returns>
         public static bool AddNewRestaurant(string name, string location, string phoneNumber)
         {
-            using var ctx = new RestaurantDbContext();
+            if (name == null || location == null || phoneNumber == null ||
+                name == "" || location == "" || phoneNumber == "")
+                return false;
+
+                using var ctx = new RestaurantDbContext();
 
             var exists = ctx.Resturaunts.FirstOrDefault(r => r.Name == name || r.Phone_number == phoneNumber);
             if (exists != null)//Om objekt med namn "name" eller telefonnummer "phoneNumber" finns, returnera false
