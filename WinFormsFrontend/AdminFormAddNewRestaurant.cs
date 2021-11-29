@@ -31,8 +31,8 @@ namespace WinFormsFrontend
             bool restaurantDoesNotExists = AdminBackend.AddNewRestaurant(name, location, phoneNmbr);
 
             if (!restaurantDoesNotExists)
-                MessageBox.Show("Restaurant with supplied information already exists!\n" +
-                                "Please try again.","Already exists!",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Poorly supplied information, or restaurant with supplied information already exists!\n" +
+                                "Please try again.","Could not add!",MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             else
             {
                 MessageBox.Show("Restaurant successfully added!", "Restaurant added", MessageBoxButtons.OK);
