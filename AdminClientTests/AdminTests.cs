@@ -75,7 +75,26 @@ namespace BackendTests
             //När man inte kan lägga till restaurang (upptaget namn/telefonnummer)
             Assert.False(AdminBackend.AddNewRestaurant("NiceFood", "Göteborg", "0723456789"));//Namn upptaget
             Assert.False(AdminBackend.AddNewRestaurant("Grenholmen", "Göteborg", "07298765432"));//Telefonnummer upptaget
-            Assert.False(AdminBackend.AddNewRestaurant("NiceFood", "Göteborg", "07298765432"));////Namn och telefonnummer upptaget
+            Assert.False(AdminBackend.AddNewRestaurant("NiceFood", "Göteborg", "07298765432"));//Namn och telefonnummer upptaget
+            //Ska inte kunna lägga till tomma uppgifter
+            /* Enligt:
+             * 000
+             * 001
+             * 010
+             * 011
+             * 100
+             * 101
+             * 110
+             */
+            Assert.False(AdminBackend.AddNewRestaurant("", "", ""));
+            Assert.False(AdminBackend.AddNewRestaurant("", "", "0723456789"));
+            Assert.False(AdminBackend.AddNewRestaurant("", "Göteborg", ""));
+            Assert.False(AdminBackend.AddNewRestaurant("", "Göteborg", "0723456789"));
+            Assert.False(AdminBackend.AddNewRestaurant("Grenholmen", "", ""));
+            Assert.False(AdminBackend.AddNewRestaurant("Grenholmen", "", "0723456789"));
+            Assert.False(AdminBackend.AddNewRestaurant("Grenholmen", "Göteborg", ""));
+
+            
         }
     }
 }
