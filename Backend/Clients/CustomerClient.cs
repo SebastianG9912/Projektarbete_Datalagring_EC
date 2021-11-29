@@ -54,7 +54,7 @@ namespace Backend.Clients
 
             return order;
         }
-        // Shows all the purchased foodpacks with orders connected to the given customer ID
+        // Returns all the purchased foodpacks with orders connected to the given customer ID
         public List<Foodpack> PurchasedFoodpacks(int customerID)
         {
             var ctx = new RestaurantDbContext();
