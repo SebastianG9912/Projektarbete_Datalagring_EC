@@ -46,9 +46,36 @@ namespace Backend.Data
 
             var customers = new List<Customer>
            {
-               new() {CustomerPrivateInfo = new CustomerPrivateInfo() {First_Name = "Jakob", Last_Name = "Dennryd"}},
-               new () {CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Bert", Last_Name = "Karlsson"}}
+               new Customer()
+               {
+                   CustomerPrivateInfo = new CustomerPrivateInfo(){
+                       First_Name = "Sebastian",
+                       Last_Name = "Gustafsson",
+                       UserEmail = "Sebbe@gmail.com",
+                       UserPassword = "1234"
 
+                   }
+               },
+               new Customer()
+               {
+                   CustomerPrivateInfo = new CustomerPrivateInfo()
+                   {
+                       First_Name = "Jakob",
+                       Last_Name = "Dennryd",
+                       UserEmail = "Jakob@gmail.com",
+                       UserPassword = "2345"
+                   }
+               },
+               new Customer()
+               {
+                   CustomerPrivateInfo = new CustomerPrivateInfo()
+                   {
+                       First_Name = "Klara",
+                       Last_Name = "Bergman",
+                       UserEmail = "Klara@gmail.com",
+                       UserPassword = "3456"
+                   }
+               }
            };
             AddRange(customers);
 
@@ -56,6 +83,8 @@ namespace Backend.Data
            {
                new () {Category = "Beef", Price = 70, Restaurant = resturaunts[0]},
                new () {Category = "Chicken", Price = 70, Restaurant = resturaunts[1]},
+               new () { Category = "Beef", Price = 70, Restaurant = resturaunts[1]},
+               new () { Category = "Chicken", Price = 70, Restaurant = resturaunts[0] },
                new () { Category = "Beef", Price = 70, Restaurant = resturaunts[1]},
                new () { Category = "Chicken", Price = 70, Restaurant = resturaunts[0] },
            };
@@ -80,15 +109,33 @@ namespace Backend.Data
             {
                 new Customer()
                 {
-                    CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Sebastian", Last_Name = "Gustafsson"}
+                    CustomerPrivateInfo = new CustomerPrivateInfo(){
+                        First_Name = "Sebastian",
+                        Last_Name = "Gustafsson",
+                        UserEmail = "Sebbe@gmail.com",
+                        UserPassword = "1234"
+
+                    }
                 },
                 new Customer()
                 {
-                    CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Jakob", Last_Name = "Dennryd"}
+                    CustomerPrivateInfo = new CustomerPrivateInfo()
+                    {
+                        First_Name = "Jakob",
+                        Last_Name = "Dennryd",
+                        UserEmail = "Jakob@gmail.com",
+                        UserPassword = "2345"
+                    }
                 },
                 new Customer()
                 {
-                    CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Klara", Last_Name = "Bergman"}
+                    CustomerPrivateInfo = new CustomerPrivateInfo()
+                    {
+                        First_Name = "Klara", 
+                        Last_Name = "Bergman",
+                        UserEmail = "Klara@gmail.com",
+                        UserPassword = "3456"
+                    }
                 }
             };
             ctx.Customers.AddRange(newCustomers);

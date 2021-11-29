@@ -9,15 +9,24 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Clients
 {
+    
     public class CustomerClient
     {
+        public void SeedDatabase()
+        {
+            using var ctx = new RestaurantDbContext();
+            ctx.Database.EnsureDeleted();
+            ctx.Database.EnsureCreated();
+            ctx.Seed();
+        }
         //List of all foodpacks up for sale
         public List<Foodpack> FoodpacksForSale()
         {
-            var ctx = new RestaurantDbContext();
+            using var ctx = new RestaurantDbContext();
 
             var query = ctx.Foodpacks
                 .Include(f => f.Order)
+                .Include(f => f.Restaurant)
                 .Where(f => f.Order == null).ToList();
 
             return query;
@@ -62,6 +71,7 @@ namespace Backend.Clients
             var query = ctx.Foodpacks
                 .Include(f => f.Order)
                 .ThenInclude(o => o.Customer)
+                .Include(f => f.Restaurant)
                 .Where(f => f.Order.Customer.Id == customerID).ToList();
 
             return query;
