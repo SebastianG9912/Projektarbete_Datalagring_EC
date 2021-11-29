@@ -12,6 +12,9 @@ namespace Backend.Data
 {
     public class AdminBackend
     {
+        /// <summary>
+        /// Tar först bort och skapar sedan database. Kan användas för att "reseta" databasen
+        /// </summary>
         public static void InitializeDatabase()
         {
             using var ctx = new RestaurantDbContext();
@@ -20,6 +23,12 @@ namespace Backend.Data
             ctx.Database.EnsureCreated();
         }
 
+        /// <summary>
+        /// Tillåter en admin att logga in
+        /// </summary>
+        /// <param name="username">Adminkontots användarnamn</param>
+        /// <param name="password">Adminkontots lösenord</param>
+        /// <returns>True om adminen skrev in rätt användarnamn och lösenord, False om antingen användarnamn eller lösenord är fel</returns>
         public static bool LogIn(string username, string password)
         {
             //Ignorerar om man använder stora eller små bokstäver vid inloggning TODO Ändra till att vara case sensitive?
@@ -29,6 +38,10 @@ namespace Backend.Data
             return false;
         }
 
+        /// <summary>
+        /// Skapar en query till databasen och hämtar alla kunder
+        /// </summary>
+        /// <returns>En lista innehållandes alla Customer-objekt i databasen</returns>
         public static List<Customer> GetAllCustomers()
         {
             using var ctx = new RestaurantDbContext();
@@ -38,6 +51,10 @@ namespace Backend.Data
                 .ToList();
         }
 
+        /// <summary>
+        /// Skapar en query till databasen och hämtar alla restauranger
+        /// </summary>
+        /// <returns>En lista innehållandes alla Restaurant-objekt i databasen</returns>
         public static List<Restaurant> GetAllRestaurants()
         {
             using var ctx = new RestaurantDbContext();
@@ -47,9 +64,15 @@ namespace Backend.Data
                 .ToList();
         }
 
+        /// <summary>
+        /// Lägger till en ny restaurang i databasen
+        /// </summary>
+        /// <param name="name">Namnet på den nya restaurangen</param>
+        /// <param name="location">Platsen för den nya restaurangen</param>
+        /// <param name="phoneNumber">Telefonnummret för den nya restaurangen</param>
+        /// <returns></returns>
         public static bool AddNewRestaurant(string name, string location, string phoneNumber)
         {
-            //TODO lägg till case där den här metoden returnerar false
             using var ctx = new RestaurantDbContext();
 
             var exists = ctx.Resturaunts.FirstOrDefault(r => r.Name == name || r.Phone_number == phoneNumber);
@@ -66,6 +89,9 @@ namespace Backend.Data
             return true;
         }
 
+        /// <summary>
+        /// Seedar databsen med data i testsyfte
+        /// </summary>
         public static void Seed()
         {
             using var ctx = new RestaurantDbContext();
@@ -110,6 +136,10 @@ namespace Backend.Data
             ctx.SaveChanges();
         }
 
+        //TODO ta bort den här metoden
+        /// <summary>
+        /// Den gamla seed-metoden som kraschar programmet
+        /// </summary>
         public static void OldBrokenSeed()
         {
             using var ctx = new RestaurantDbContext();

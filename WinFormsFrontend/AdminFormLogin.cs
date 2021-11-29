@@ -3,6 +3,9 @@ using Backend.Data;
 
 namespace WinFormsFrontend
 {
+    /// <summary>
+    /// Inloggningsfönstret för admin UI
+    /// </summary>
     public partial class AdminFormLogin : Form
     {
         public AdminFormLogin()
@@ -10,6 +13,11 @@ namespace WinFormsFrontend
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Försöker logga in admin och byta till nytt fönster
+        /// </summary>
+        /// <param name="sender">Referens till knappen som blivit tryckt</param>
+        /// <param name="e">Flaggar för att knappen blivit tryckt</param>
         private void buttonLogIn_Click(object sender, EventArgs e)
         {
             string username = tbUsername.Text;

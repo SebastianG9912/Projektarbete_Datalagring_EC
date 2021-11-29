@@ -11,6 +11,9 @@ using Backend.Data;
 
 namespace WinFormsFrontend
 {
+    /// <summary>
+    /// Huvudmeny för admin UI
+    /// </summary>
     public partial class AdminFormMenu : Form
     {
         public AdminFormMenu()
@@ -18,6 +21,11 @@ namespace WinFormsFrontend
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Resetar och potentiellt seedar databasen
+        /// </summary>
+        /// <param name="sender">Referens till knappen som blivit tryckt</param>
+        /// <param name="e">Flaggar för att knappen blivit tryckt</param>
         private void btnResetDB_Click(object sender, EventArgs e)
         {
             AdminBackend.InitializeDatabase();
@@ -38,6 +46,11 @@ namespace WinFormsFrontend
                 
         }
 
+        /// <summary>
+        /// Visar alla användare
+        /// </summary>
+        /// <param name="sender">Referens till knappen som blivit tryckt</param>
+        /// <param name="e">Flaggar för att knappen blivit tryckt</param>
         private void btnViewUsers_Click(object sender, EventArgs e)
         {
             txtBoxInfo.Text = "";
@@ -51,6 +64,11 @@ namespace WinFormsFrontend
                 txtBoxInfo.Text = "There are no users in the database!";
         }
 
+        /// <summary>
+        /// Visar alla restauranger
+        /// </summary>
+        /// <param name="sender">Referens till knappen som blivit tryckt</param>
+        /// <param name="e">Flaggar för att knappen blivit tryckt</param>
         private void btnViewRestaurants_Click(object sender, EventArgs e)
         {
             txtBoxInfo.Text = "";
@@ -64,6 +82,11 @@ namespace WinFormsFrontend
                 txtBoxInfo.Text = "There are no restaurants in the database!";
         }
 
+        /// <summary>
+        /// Försöker byta fönster för att kunna lägga till ny användare
+        /// </summary>
+        /// <param name="sender">Referens till knappen som blivit tryckt</param>
+        /// <param name="e">Flaggar för att knappen blivit tryckt</param>
         private void btnAddRestaurant_Click(object sender, EventArgs e)
         {
             txtBoxInfo.Text = "";

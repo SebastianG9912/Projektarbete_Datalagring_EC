@@ -9,6 +9,9 @@ namespace BackendTests
 {
     public class AdminTests
     {
+        /// <summary>
+        /// Resetar databsen och fyller den med testdata
+        /// </summary>
         public AdminTests()
         {
             AdminBackend.InitializeDatabase();
@@ -16,7 +19,7 @@ namespace BackendTests
         }
 
         [Fact]
-        public void ResetDatabaseTest()
+        public void ResetDatabaseTest()//Testar om databasen resetar sig själv korrekt
         {
             using var ctx = new RestaurantDbContext();
             Assert.Equal(3, ctx.Customers.Count());
@@ -33,7 +36,7 @@ namespace BackendTests
         }
 
         [Fact]
-        public void ViewAllCustomersTest()
+        public void ViewAllCustomersTest()//Testar om metoden "GetAllCustomers" fungerar korrekt
         {
             List<Customer> customerList = AdminBackend.GetAllCustomers();
             string[] names = new[] {"Sebastian", "Jakob", "Klara"};
@@ -47,7 +50,7 @@ namespace BackendTests
         }
 
         [Fact]
-        public void ViewAllRestaurantsTest()
+        public void ViewAllRestaurantsTest()//Testar om metoden "GetAllRestaurants" fungerar korrekt
         {
             List<Restaurant> restList = AdminBackend.GetAllRestaurants();
             string[] names = new[] { "NiceFood", "GreenCuisine" };
@@ -58,7 +61,7 @@ namespace BackendTests
         }
 
         [Fact]
-        public void AddRestaurantTest()
+        public void AddRestaurantTest()//Testar om metoden "AddNewRestaurant" fungerar korrekt
         {
             AdminBackend.InitializeDatabase();//För att ta resetta databasen utan seeding
             using var ctx = new RestaurantDbContext();

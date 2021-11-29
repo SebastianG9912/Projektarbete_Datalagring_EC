@@ -18,6 +18,11 @@ namespace WinFormsFrontend
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Försöker lägga till ny restaurang till databasen
+        /// </summary>
+        /// <param name="sender">Referens till knappen som blivit tryckt</param>
+        /// <param name="e">Flaggar för att knappen blivit tryckt</param>
         private void btnAddRestaurant_Click(object sender, EventArgs e)
         {
             string name = txtBoxName.Text;

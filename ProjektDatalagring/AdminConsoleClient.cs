@@ -8,15 +8,18 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ConsoleFrontend
 {
+    /// <summary>
+    /// Console-versionen av admin UI
+    /// </summary>
     public class AdminConsoleClient
     {
         public static void Main(string[] args)
         {
             var key = new ConsoleKeyInfo();
-            bool loggedOut = false;//TODO sätt till true vid implementerad inloggningssystem
+            bool loggedOut = true;
             while (true)
             {
-                if (loggedOut)//TODO ska det bara finnas ett admin lösen?(slipper roller)
+                if (loggedOut)
                 {
                     Console.WriteLine("Please log in");
                     Console.WriteLine("Username: ");
