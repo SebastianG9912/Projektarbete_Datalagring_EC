@@ -67,16 +67,19 @@ while (true)
     if (input == "3")
     {
         Console.Clear();
-        Console.WriteLine("Enter id, category, price, name");
-        var input1 = Console.ReadLine().Split(' ', StringSplitOptions.RemoveEmptyEntries);
-        var id = Convert.ToInt32(input1[0]);
-        var category = input1[1];
-        var price = Convert.ToInt32(input1[2]);
-        var name = input1[3];
+        Console.Clear();
+        Console.WriteLine("Insert restaurant ID");
+        int Id = (Convert.ToInt32(Console.ReadLine()));
+        Console.WriteLine("Insert meal name");
+        string name = Console.ReadLine();
+        Console.WriteLine("Insert price");
+        int price = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Insert meal category");
+        string category = Console.ReadLine();
 
         var RestaurantClient = new RestaurantClient();
 
-        RestaurantClient.AddFoodbox(id, category, price, name);
+        RestaurantClient.AddFoodbox(Id, name, price, category);
         Console.WriteLine("Your restaurant has been added");
         Console.ReadKey();
     }
