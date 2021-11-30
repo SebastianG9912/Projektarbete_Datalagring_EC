@@ -13,7 +13,7 @@ namespace RestaurantClientTests
         {
             //TODO fixa efter vi mergat
             //AdminBackend.InitializeDatabase();
-            //Seed();
+            //AdminBackend.Seed();
 
             var ctx = new RestaurantClient();
 
@@ -25,13 +25,12 @@ namespace RestaurantClientTests
         {
             //TODO fixa efter vi mergat
             //AdminBackend.InitializeDatabase();
-            //Seed();
+            //AdminBackend.Seed();
 
             List<Foodpack> list = RestaurantClient.SoldFoodboxes(1);
-            string[] names = new[] { "Beef Pie", "Vegetable Pie" };
+            string[] names = { "Beef Pie", "Vegetable Pie" };
 
-            Assert.Equal(2, list.Count);
-            for (int i = 0; i < names.Length; i++)
+            for (var i = 0; i < names.Length; i++)
                 Assert.Equal(names[i], list.ElementAt(i).Name);
         }
 
@@ -43,10 +42,9 @@ namespace RestaurantClientTests
             //Seed();
 
             List<Foodpack> list = RestaurantClient.UnsoldFoodboxes(2);
-            string[] names = new[] { "ChickenBurger", "ClassicBurger" };
+            string[] names = { "ChickenBurger", "ClassicBurger" };
 
-            Assert.Equal(2, list.Count);
-            for (int i = 0; i < names.Length; i++)
+            for (var i = 0; i < names.Length; i++)
                 Assert.Equal(names[i], list.ElementAt(i).Name);
         }
     }

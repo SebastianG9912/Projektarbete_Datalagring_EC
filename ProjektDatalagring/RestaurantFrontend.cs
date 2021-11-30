@@ -1,5 +1,4 @@
-﻿
-using Backend.Data;
+﻿using Backend.Data;
 
 RestaurantDbContext ctx = new RestaurantDbContext();
 ctx.Database.EnsureDeleted();
@@ -27,15 +26,23 @@ while (true)
             foreach (var box in RestaurantClient.UnsoldFoodboxes(choice))
             {
                 Console.WriteLine($"Pack ID: {box.Id}, " +
-                                  $"Pack Category: {box.Category}, " +
-                                  $"Pack Name: {box.Name}");
+                                  $"Category: {box.Category}, " +
+                                  $"Name: {box.Name}");
             }
+
+            if (RestaurantClient.UnsoldFoodboxes(choice).Count == 0)
+            {
+                Console.WriteLine("This restaurant has no unsold Foodpacks\nPress enter to get back to main menu");
+            }
+
         }
-        catch (Exception e)
+        catch
         {
             Console.WriteLine("Input format not correct, please enter a number");
         }
         Console.ReadKey();
+
+        
     }
 
     if (input == "2")
@@ -50,13 +57,18 @@ while (true)
             foreach (var box in RestaurantClient.SoldFoodboxes(choice))
             {
                 Console.WriteLine($"Pack ID: {box.Id}, " +
-                                  $"Pack Name: {box.Name}, " +
-                                  $"Pack Category: {box.Category}, " +
+                                  $"Name: {box.Name}, " +
+                                  $"Category: {box.Category}, " +
                                   $"Order ID: {box.Order.Id}, " +
-                                  $"Pack Price: {box.Price} SEK");
+                                  $"Price: {box.Price} SEK");
+            }
+
+            if (RestaurantClient.SoldFoodboxes(choice).Count == 0)
+            {
+                Console.WriteLine("This restaurant has no sold Foodpacks\nPress enter to get back to main menu");
             }
         }
-        catch (Exception e)
+        catch
         {
             Console.WriteLine("Input format not correct, please enter a number");
         }
@@ -66,7 +78,6 @@ while (true)
 
     if (input == "3")
     {
-        Console.Clear();
         Console.Clear();
         Console.WriteLine("Insert restaurant ID");
         int Id = (Convert.ToInt32(Console.ReadLine()));
@@ -88,6 +99,7 @@ while (true)
     {
         Console.Clear();
         Console.WriteLine("Error input, try again");
+        Console.Clear();
         Console.ReadKey();
     }
 }
