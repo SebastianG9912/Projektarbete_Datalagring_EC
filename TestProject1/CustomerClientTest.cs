@@ -14,11 +14,8 @@ namespace TestProject1
     {
         public CustomerClientTest()
         {
-            using var ctx = new RestaurantDbContext();
-            ctx.Database.EnsureDeleted();
-            ctx.Database.EnsureCreated();
-            ctx.SeedTest();
-            
+            AdminBackend.InitializeDatabase();
+            AdminBackend.Seed();
         }
         [Fact]
         public void TestPurchase()
