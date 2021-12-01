@@ -1,7 +1,5 @@
 ﻿using Backend.Data;
 
-AdminBackend.InitializeDatabase();
-AdminBackend.Seed();
 
 while (true)
 {
@@ -9,7 +7,8 @@ while (true)
     Console.WriteLine("---------------------\n");
     Console.WriteLine("1 See unsold foodpacks");
     Console.WriteLine("2 See sold foodpacks");
-    Console.WriteLine("3 Add foodpack\n");
+    Console.WriteLine("3 Add foodpack");
+    Console.WriteLine("4 Reset Database\n");
 
     Console.WriteLine("Input choice\n");
     var input = Console.ReadLine();
@@ -40,9 +39,8 @@ while (true)
         {
             Console.WriteLine("Input format not correct, please enter a number");
         }
-        Console.ReadKey();
 
-        
+        Console.ReadKey();
     }
 
     if (input == "2")
@@ -87,27 +85,43 @@ while (true)
         string name = Console.ReadLine();
         Console.WriteLine("Insert price");
         int price = Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Insert meal category");
-        string category = Console.ReadLine();
+        Console.WriteLine("Insert meal category beef/vego/fish/chicken");
+        string category = Console.ReadLine().ToLower();
 
-        var restaurantClient = new RestaurantClient();
-
-        bool wrongRestId = restaurantClient.AddFoodbox(Id, name, price, category);
-
-        if (!wrongRestId)
+        if (category == "beef" || category == "vego" || category == "fish" || category == "chicken")
         {
-            Console.Clear();
-            Console.WriteLine("Restaurant does not exist!\n" +
-                              "Please enter an existing Restaurant Id");
+            var restaurantClient = new RestaurantClient();
+
+            bool wrongRestId = restaurantClient.AddFoodbox(Id, name, price, category);
+
+            if (!wrongRestId)
+            {
+                Console.Clear();
+                Console.WriteLine("Restaurant does not exist!\n" +
+                                  "Please enter an existing Restaurant Id");
+            }
+            else
+            {
+                Console.Clear();
+                Console.WriteLine("Your Foodpack has been added " +
+                                  $"to your restaurant: {Id}!");
+            }
+
+            Console.ReadKey();
         }
         else
         {
-            Console.Clear();
-            Console.WriteLine($"Your Foodpack has been added " +
-                              $"to your restaurant: {Id}!");
+            Console.WriteLine("Wrong category input, please input correct category");
+            Console.ReadKey();
         }
         
-        Console.ReadKey();
+    }
+
+    if (input == "4")
+    {
+        AdminBackend.InitializeDatabase();
+        AdminBackend.Seed();
+        Console.Clear();
     }
 
     else
