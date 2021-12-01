@@ -2,19 +2,52 @@
 using Backend.Model;
 
 LoginManager loginManager = new LoginManager();
+bool loginSucces = false;
+string[] emailAndPassword = new string []{};
+string email = "";
+string password = "";
+bool quit = false;
+var customer = new CustomerPrivateInfo();
 while (true)
 {
-    Console.Clear();
-    Console.WriteLine("Welcome to the Customer Client," +
-                      " to log in please enter your email and password below!");
-    string input = Console.ReadLine();
-    string[] emailAndPassword = input.Split(' ');
+    while (!loginSucces)
+    {
+        Console.Clear();
+        Console.WriteLine("Welcome to the Customer Client," +
+                          " to log in please enter your email and password below!");
+        string input = Console.ReadLine();
+        emailAndPassword = input.Split(' ');
 
-    string email = emailAndPassword[0];
-    string password = emailAndPassword[1];
+        if (emailAndPassword[1] == "")
+        {
+            Console.WriteLine("You did not enter a password, please try again!");
 
-    bool quit = false;
-    var customer = loginManager.Login(email, password);
+        }
+        else
+        {
+            email = emailAndPassword[0];
+            password = emailAndPassword[1];
+        }
+
+        customer = loginManager.Login(email, password);
+
+        if (customer == null)
+        {
+            Console.WriteLine("Wrong email/password, try again!");
+        }
+        else
+        {
+            loginSucces = true;
+        }
+    }
+        
+
+    
+
+
+
+   
+    
     if (customer != null)
     {
         CustomerClient customerClient = new CustomerClient();
@@ -38,66 +71,94 @@ while (true)
             {
                 case 1:
                 {
-                    Console.Clear();
-                    Console.WriteLine("Id | Category | Price | Restaurant");
-                    List<Foodpack> fpList = customerClient.FoodpacksForSale();
-                    foreach (var fp in fpList)
+                    Console.WriteLine("Enter your chosen category: (Beef, Fish, Vego, Chicken)");
+                    string inputCategory = Console.ReadLine();
+                    if (inputCategory == "Beef" || inputCategory == "Fish" || inputCategory == "Vego" || inputCategory =="Chicken")
                     {
-                        Console.WriteLine(fp.Id + " | " + fp.Category + " | " + fp.Price + " | " + fp.Restaurant.Name);
-                    }
+                        Console.Clear();
+                        Console.WriteLine("Id | Category | Price | Restaurant");
+                        List<Foodpack> fpList = customerClient.FoodpacksForSale(inputCategory);
+                        foreach (var fp in fpList)
+                        {
+                            Console.WriteLine(fp.Id + " | " + fp.Category + " | " + fp.Price + " | " + fp.Restaurant.Name);
+                        }
 
-                    Console.WriteLine();
-                    Console.WriteLine("Press ENTER to return to selection");
-                    Console.ReadLine();
+                        Console.WriteLine();
+                        Console.WriteLine("Press ENTER to return to selection");
+                        Console.ReadLine();
+                    }
+                    else
+                    {
+                        Console.WriteLine("The given category doesn't exist");
+                        Console.Clear();
+                        goto case 1;
+                    }
+                   
 
                     break;
                 }
                 case 2:
                 {
-                    Console.Clear();
-                    Console.WriteLine("Id | Category | Price | Restaurant");
-                    List<Foodpack> fpList = customerClient.FoodpacksForSale();
-                    foreach (var fp in fpList)
+                    Console.WriteLine("Enter your chosen category: (Beef, Fish, Vego, Chicken)");
+                    string inputCategory = Console.ReadLine();
+                    if (inputCategory == "Beef" || inputCategory == "Fish" || inputCategory == "Vego" ||
+                        inputCategory == "Chicken")
                     {
-                        Console.WriteLine(fp.Id + " | " + fp.Category + " | " + fp.Price + " | " + fp.Restaurant.Name);
+                        Console.Clear();
+                        Console.WriteLine("Id | Category | Price | Restaurant");
+                        List<Foodpack> fpList = customerClient.FoodpacksForSale(inputCategory);
+                        foreach (var fp in fpList)
+                        {
+                            Console.WriteLine(fp.Id + " | " + fp.Category + " | " + fp.Price + " | " +
+                                              fp.Restaurant.Name);
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine(
+                            "Put down the Id's of the foodpacks you want to order below, with a space between each Id (eg. 1 2 3)");
+                        string fpInput = Console.ReadLine();
+                        string[] fpArray = fpInput.Split(' ');
+                        List<int> fpIdList = new List<int>();
+                        foreach (string fp in fpArray)
+                        {
+                            fpIdList.Add(int.Parse(fp));
+                        }
+
+                        var order = customerClient.PurchaseFoodpack(fpIdList, customer.Id);
+
+                        Console.Clear();
+
+                        Console.WriteLine("Order receipt: ");
+                        Console.WriteLine();
+                        Console.WriteLine("Customer name | Order date | Order id");
+                        Console.WriteLine(order.Customer.CustomerPrivateInfo.First_Name
+                                          + " " + order.Customer.CustomerPrivateInfo.Last_Name
+                                          + " | " + order.OrderDateTime
+                                          + " | " + order.Id);
+                        Console.WriteLine("Foodpacks in order: ");
+                        Console.WriteLine("Id | Category | Price | Restaurant");
+                        foreach (var fp in order.Foodpacks)
+                        {
+                            Console.WriteLine(fp.Id
+                                              + " | " + fp.Category
+                                              + " | " + fp.Price
+                                              + " | " + fp.Restaurant.Name);
+                        }
+
+                        Console.WriteLine();
+                        Console.WriteLine("Press ENTER to continue");
+                        Console.ReadLine();
+                        
                     }
 
-                    Console.WriteLine();
-                    Console.WriteLine("Put down the Id's of the foodpacks you want to order below, with a space between each Id (eg. 1 2 3)");
-                    string fpInput = Console.ReadLine();
-                    string[] fpArray = fpInput.Split(' ');
-                    List<int> fpIdList = new List<int>();
-                    foreach (string fp in fpArray)
+                    else
                     {
-                        fpIdList.Add(int.Parse(fp));
+                        Console.WriteLine("The given category doesn't exist");
+                        Console.Clear();
+                        goto case 2;
                     }
-                    
-                    var order = customerClient.PurchaseFoodpack(fpIdList, customer.Id);
-
-                    Console.Clear();
-
-                    Console.WriteLine("Order receipt: ");
-                    Console.WriteLine();
-                    Console.WriteLine("Customer name | Order date | Order id");
-                    Console.WriteLine(order.Customer.CustomerPrivateInfo.First_Name
-                    + " " + order.Customer.CustomerPrivateInfo.Last_Name
-                    + " | " + order.OrderDateTime
-                    + " | " + order.Id);
-                    Console.WriteLine("Foodpacks in order: ");
-                    Console.WriteLine("Id | Category | Price | Restaurant");
-                    foreach (var fp in order.Foodpacks)
-                    {
-                        Console.WriteLine(fp.Id
-                        +" | " + fp.Category
-                        +" | " + fp.Price
-                        +" | " + fp.Restaurant.Name);
-                    }
-
-                    Console.WriteLine();
-                    Console.WriteLine("Press ENTER to continue");
-                    Console.ReadLine();
                     break;
-                }
+                    }
                 case 3:
                 {
                     Console.Clear();

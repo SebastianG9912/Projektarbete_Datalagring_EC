@@ -18,14 +18,14 @@ namespace Backend.Clients
             AdminBackend.Seed();
         }
         //List of all foodpacks up for sale
-        public List<Foodpack> FoodpacksForSale()
+        public List<Foodpack> FoodpacksForSale(string category)
         {
             using var ctx = new RestaurantDbContext();
 
             var query = ctx.Foodpacks
                 .Include(f => f.Order)
                 .Include(f => f.Restaurant)
-                .Where(f => f.Order == null).ToList();
+                .Where(f => f.Order == null && f.Category == category).OrderByDescending(f => f.Price).ToList();
 
             return query;
         }
