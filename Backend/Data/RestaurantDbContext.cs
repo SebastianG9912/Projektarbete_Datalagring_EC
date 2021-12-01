@@ -17,13 +17,21 @@ namespace Backend.Data
         public DbSet<Order> Orders { get; set; }
         public DbSet<Restaurant> Resturaunts { get; set; }
 
+        /// <summary>
+        /// Ansluter till databsen
+        /// </summary>
+        /// <param name="optionsBuilder">Ger de val man kan göra för att ansluta till databasen</param>
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder
                 .LogTo(m => Debug.WriteLine(m))
-                .UseSqlServer(@"server=(localdb)\MSSQLLocalDB;database=Inlmning2DB");
+                .UseSqlServer(@"server=(localdb)\MSSQLLocalDB;database=ProjektDatabaser");
         }
 
+        /// <summary>
+        /// Sätter krav till specifika properties i databas-tabellerna
+        /// </summary>
+        /// <param name="modelBuilder">Ger val för att sätta krav på properties</param>
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Restaurant>()
@@ -34,42 +42,5 @@ namespace Backend.Data
                 .HasIndex(r => r.Name)
                 .IsUnique();
         }
-
-        public void Seed()
-        {
-            var resturaunts = new List<Restaurant>
-            {
-                new() {Location = "Halmstad", Name = "Noodle house", Phone_number = "12312356"},
-                new() {Location = "Halmstad", Name = "Wook huset", Phone_number = "1234556"}
-            };
-            AddRange(resturaunts);
-
-            var customers = new List<Customer>
-           {
-               new() {CustomerPrivateInfo = new CustomerPrivateInfo() {First_Name = "Jakob", Last_Name = "Dennryd"}},
-               new () {CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Bert", Last_Name = "Karlsson"}}
-
-           };
-            AddRange(customers);
-
-            var foodpacks = new List<Foodpack>
-           {
-               new () {Category = "Beef", Price = 70, Restaurant = resturaunts[0]},
-               new () {Category = "Chicken", Price = 70, Restaurant = resturaunts[1]},
-               new () { Category = "Beef", Price = 70, Restaurant = resturaunts[1]},
-               new () { Category = "Chicken", Price = 70, Restaurant = resturaunts[0] },
-           };
-            AddRange(foodpacks);
-
-
-            var orders = new List<Order>
-           {
-               new () {Customer = customers[1], Foodpacks = new List<Foodpack>(){foodpacks[0], foodpacks[1]},OrderDateTime = DateTime.Now}
-           };
-
-            AddRange(orders);
-
-        }
     }
-}
 }
