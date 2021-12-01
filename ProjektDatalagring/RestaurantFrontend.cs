@@ -7,7 +7,8 @@ ctx.Seed();
 
 while (true)
 {
-    Console.WriteLine("RestaurantClient Menu\n");
+    Console.WriteLine("RestaurantClient Menu");
+    Console.WriteLine("---------------------\n");
     Console.WriteLine("1 See unsold foodpacks");
     Console.WriteLine("2 See sold foodpacks");
     Console.WriteLine("3 Add foodpack\n");
@@ -19,6 +20,7 @@ while (true)
     {
         Console.Clear();
         Console.WriteLine("Enter Restaurant ID");
+        // ID 2 har osålda
 
         try
         {
@@ -49,6 +51,8 @@ while (true)
     {
         Console.Clear();
         Console.WriteLine("Enter Restaurant ID");
+
+        // ID 1 har sålda
 
         try
         {
@@ -88,17 +92,19 @@ while (true)
         Console.WriteLine("Insert meal category");
         string category = Console.ReadLine();
 
-        var RestaurantClient = new RestaurantClient();
+        var restaurantClient = new RestaurantClient();
 
-        bool wrongRestId = RestaurantClient.AddFoodbox(Id, name, price, category);
+        bool wrongRestId = restaurantClient.AddFoodbox(Id, name, price, category);
 
         if (!wrongRestId)
         {
+            Console.Clear();
             Console.WriteLine("Restaurant does not exist!\n" +
                               "Please enter an existing Restaurant Id");
         }
         else
         {
+            Console.Clear();
             Console.WriteLine($"Your Foodpack has been added " +
                               $"to your restaurant: {Id}!");
         }
