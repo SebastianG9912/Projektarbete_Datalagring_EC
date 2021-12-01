@@ -4,19 +4,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProjektDatalagring", "ProjektDatalagring\ProjektDatalagring.csproj", "{79CBD6F4-BCA1-4617-8E97-CDAB9D8B6F15}"
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleFrontend", "ProjektDatalagring\ConsoleFrontend.csproj", "{79CBD6F4-BCA1-4617-8E97-CDAB9D8B6F15}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleFrontend", "ProjektDatalagring\ConsoleFrontend.csproj", "{52682D67-2D88-45FB-BA0C-4A8142DFAC1B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Backend", "Backend\Backend.csproj", "{15DA8F4E-FDCD-4F26-BF82-2E5808C2BBA3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestaurantClientTests", "RestaurantClientTests\RestaurantClientTests.csproj", "{5B5422CA-58F3-4096-9044-EA654E61846B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RestaurantClientTests", "RestaurantClientTests\RestaurantClientTests.csproj", "{5B5422CA-58F3-4096-9044-EA654E61846B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BackendTests", "AdminClientTests\BackendTests.csproj", "{9D68C5F2-B84B-4E1F-B394-AD49CE8BD0AE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinFormsFrontend", "WinFormsFrontend\WinFormsFrontend.csproj", "{E882EDD7-010B-41D1-B864-51D0E03AF1B4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinFormsFrontend", "WinFormsFrontend\WinFormsFrontend.csproj", "{E882EDD7-010B-41D1-B864-51D0E03AF1B4}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject1\TestProject1.csproj", "{1AD9911A-A680-4E47-B2D7-A7A45BC6826E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerFrontEnd", "CustomerFrontEnd\CustomerFrontEnd.csproj", "{8B975386-766B-4F4F-86A7-F3AE44B8197F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerFrontEnd", "CustomerFrontEnd\CustomerFrontEnd.csproj", "{8B975386-766B-4F4F-86A7-F3AE44B8197F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -28,10 +29,18 @@ Global
 		{79CBD6F4-BCA1-4617-8E97-CDAB9D8B6F15}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79CBD6F4-BCA1-4617-8E97-CDAB9D8B6F15}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79CBD6F4-BCA1-4617-8E97-CDAB9D8B6F15}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52682D67-2D88-45FB-BA0C-4A8142DFAC1B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52682D67-2D88-45FB-BA0C-4A8142DFAC1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52682D67-2D88-45FB-BA0C-4A8142DFAC1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52682D67-2D88-45FB-BA0C-4A8142DFAC1B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{15DA8F4E-FDCD-4F26-BF82-2E5808C2BBA3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{15DA8F4E-FDCD-4F26-BF82-2E5808C2BBA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15DA8F4E-FDCD-4F26-BF82-2E5808C2BBA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15DA8F4E-FDCD-4F26-BF82-2E5808C2BBA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B5422CA-58F3-4096-9044-EA654E61846B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B5422CA-58F3-4096-9044-EA654E61846B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B5422CA-58F3-4096-9044-EA654E61846B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B5422CA-58F3-4096-9044-EA654E61846B}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9D68C5F2-B84B-4E1F-B394-AD49CE8BD0AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9D68C5F2-B84B-4E1F-B394-AD49CE8BD0AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9D68C5F2-B84B-4E1F-B394-AD49CE8BD0AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -48,10 +57,6 @@ Global
 		{8B975386-766B-4F4F-86A7-F3AE44B8197F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8B975386-766B-4F4F-86A7-F3AE44B8197F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8B975386-766B-4F4F-86A7-F3AE44B8197F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5B5422CA-58F3-4096-9044-EA654E61846B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5B5422CA-58F3-4096-9044-EA654E61846B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5B5422CA-58F3-4096-9044-EA654E61846B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5B5422CA-58F3-4096-9044-EA654E61846B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
