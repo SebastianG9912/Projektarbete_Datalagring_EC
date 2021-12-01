@@ -9,7 +9,9 @@
 > Använd appen "WinFormsFrontend" för att logga in och komma åt funktionerna
 
 ##### Client appen:
-
+> Det finns 3 olika inlogg, standard som användes vid test är: <br />
+> Jakob@gmail.com 2345 <br />
+> Vid inloggning, skriv lösen och email på en rad med mellanrum. <br />
 
 
 ##### Restaurang appen:
