@@ -59,7 +59,7 @@ namespace WinFormsFrontend
             if (customers.Count > 0)
                 foreach (var c in customers)
                     txtBoxInfo.AppendText(
-                        $"#{c.Id} {c.CustomerPrivateInfo.First_Name} {c.CustomerPrivateInfo.Last_Name}\r\n");
+                        $"#{c.Id} {c.CustomerPrivateInfo.First_Name} {c.CustomerPrivateInfo.Last_Name}, Email: {c.CustomerPrivateInfo.UserEmail}\r\n");
             else
                 txtBoxInfo.Text = "There are no users in the database!";
         }
@@ -77,7 +77,7 @@ namespace WinFormsFrontend
             if (restaurants.Count > 0)
                 foreach (var r in restaurants)
                     txtBoxInfo.AppendText(
-                        $"#{r.Id} {r.Name}, Phone number: {r.Phone_number}, Food packages: {r.Foodpacks.Count}, Location: {r.Location}\r\n");
+                        $"#{r.Id} {r.Name}, Phone number: {r.Phone_number}, Location: {r.Location}\r\n");
             else
                 txtBoxInfo.Text = "There are no restaurants in the database!";
         }

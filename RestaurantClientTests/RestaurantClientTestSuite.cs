@@ -10,12 +10,8 @@ namespace RestaurantClientTests
     {
         public RestaurantClientTestSuite()
         {
-            using var ctx = new RestaurantDbContext();
-            ctx.Database.EnsureDeleted();
-            ctx.Database.EnsureCreated();
-            ctx.Seed();
-
-            // TODO fixa efter vi mergat med metoder från admin
+            AdminBackend.InitializeDatabase();
+            AdminBackend.Seed();
         }
 
         [Fact]

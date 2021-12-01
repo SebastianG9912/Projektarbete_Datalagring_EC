@@ -1,9 +1,7 @@
 ﻿using Backend.Data;
 
-RestaurantDbContext ctx = new RestaurantDbContext();
-ctx.Database.EnsureDeleted();
-ctx.Database.EnsureCreated();
-ctx.Seed();
+AdminBackend.InitializeDatabase();
+AdminBackend.Seed();
 
 while (true)
 {

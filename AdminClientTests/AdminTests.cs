@@ -24,7 +24,7 @@ namespace BackendTests
             using var ctx = new RestaurantDbContext();
             Assert.Equal(3, ctx.Customers.Count());
             Assert.Equal(2, ctx.Resturaunts.Count());
-            Assert.Equal(2, ctx.Foodpacks.Count());
+            Assert.Equal(4, ctx.Foodpacks.Count());
             Assert.Equal(1, ctx.Orders.Count());
 
             AdminBackend.InitializeDatabase();//För reset

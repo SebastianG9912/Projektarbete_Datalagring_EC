@@ -100,19 +100,37 @@ namespace Backend.Data
         {
             using var ctx = new RestaurantDbContext();
 
-            var newCustomers = new Customer[]
+            var newCustomers = new List<Customer>
             {
                 new Customer()
                 {
-                    CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Sebastian", Last_Name = "Gustafsson"}
+                    CustomerPrivateInfo = new CustomerPrivateInfo(){
+                        First_Name = "Sebastian",
+                        Last_Name = "Gustafsson",
+                        UserEmail = "Sebbe@gmail.com",
+                        UserPassword = "1234"
+
+                    }
                 },
                 new Customer()
                 {
-                    CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Jakob", Last_Name = "Dennryd"}
+                    CustomerPrivateInfo = new CustomerPrivateInfo()
+                    {
+                        First_Name = "Jakob",
+                        Last_Name = "Dennryd",
+                        UserEmail = "Jakob@gmail.com",
+                        UserPassword = "2345"
+                    }
                 },
                 new Customer()
                 {
-                    CustomerPrivateInfo = new CustomerPrivateInfo(){First_Name = "Klara", Last_Name = "Bergman"}
+                    CustomerPrivateInfo = new CustomerPrivateInfo()
+                    {
+                        First_Name = "Klara",
+                        Last_Name = "Bergman",
+                        UserEmail = "Klara@gmail.com",
+                        UserPassword = "3456"
+                    }
                 }
             };
             ctx.Customers.AddRange(newCustomers);
@@ -126,8 +144,10 @@ namespace Backend.Data
 
             var newFoodPacks = new Foodpack[]
             {
-                new Foodpack(){Category = "Beef", Price = 70, Restaurant = newRestaurants[0]},
-                new Foodpack(){Category = "Chicken", Price = 50, Restaurant = newRestaurants[1]}
+                new Foodpack(){Category = "Beef", Price = 70, Restaurant = newRestaurants[0], Name = "Beef Pie"},
+                new Foodpack(){Category = "Vego", Price = 70, Restaurant = newRestaurants[0], Name = "Vegetable Pie"},
+                new Foodpack(){Category = "Chicken", Price = 50, Restaurant = newRestaurants[1], Name = "ChickenBurger"},
+                new Foodpack(){Category = "Beef", Price = 50, Restaurant = newRestaurants[1], Name = "ClassicBurger"}
             };
             ctx.Foodpacks.AddRange(newFoodPacks);
 

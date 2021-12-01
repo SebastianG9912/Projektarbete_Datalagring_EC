@@ -29,8 +29,9 @@ namespace TestProject1
                 .Where(o => o.Customer.Id == 1 && o.Foodpacks.Contains(new Foodpack()
                 {
                     Id = 3,
-                    Category = "Beef",
-                    Price = 70,
+                    Category = "Chicken",
+                    Price = 50,
+                    Name = "ChickenBurger",
                     Restaurant = new Restaurant()
                     {
                         Name = "NiceFood", Location = "Eldsberga", Phone_number = "0701234567"

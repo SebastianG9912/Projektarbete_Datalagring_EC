@@ -14,10 +14,8 @@ namespace Backend.Clients
     {
         public void SeedDatabase()
         {
-            using var ctx = new RestaurantDbContext();
-            ctx.Database.EnsureDeleted();
-            ctx.Database.EnsureCreated();
-            ctx.Seed();
+            AdminBackend.InitializeDatabase();
+            AdminBackend.Seed();
         }
         //List of all foodpacks up for sale
         public List<Foodpack> FoodpacksForSale()
@@ -40,6 +38,7 @@ namespace Backend.Clients
             foreach (var fp in foodpackID)
             {
                 var queryFoodpack = ctx.Foodpacks
+                    .Include(f => f.Restaurant)
                     .Where(f => f.Id == fp).FirstOrDefault();
                 foodpackCart.Add(queryFoodpack);
             }
