@@ -14,7 +14,7 @@ namespace Backend.Model
         public string Category { get; set; }
         [Required]
         public Restaurant Restaurant { get; set; }
-        public Order Order { get; set; }
+        public Order? Order { get; set; }
         [Required]
         public double Price { get; set; }
     }
