@@ -35,6 +35,11 @@ namespace Backend.Data
 
             var box = new Foodpack() { Category = mealCategory, Price = unitPrice, Restaurant = ctx.Resturaunts.Find(restId), Name = name};
 
+            if (ctx.Resturaunts.Find(restId) == null)
+            {
+                return false;
+            }
+
             ctx.Foodpacks.Add(box);
             ctx.SaveChanges();
 

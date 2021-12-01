@@ -3,7 +3,7 @@
 RestaurantDbContext ctx = new RestaurantDbContext();
 ctx.Database.EnsureDeleted();
 ctx.Database.EnsureCreated();
-RestaurantDbContext.Seed();
+ctx.Seed();
 
 while (true)
 {
@@ -90,8 +90,19 @@ while (true)
 
         var RestaurantClient = new RestaurantClient();
 
-        RestaurantClient.AddFoodbox(Id, name, price, category);
-        Console.WriteLine("Your restaurant has been added");
+        bool wrongRestId = RestaurantClient.AddFoodbox(Id, name, price, category);
+
+        if (!wrongRestId)
+        {
+            Console.WriteLine("Restaurant does not exist!\n" +
+                              "Please enter an existing Restaurant Id");
+        }
+        else
+        {
+            Console.WriteLine($"Your Foodpack has been added " +
+                              $"to your restaurant: {Id}!");
+        }
+        
         Console.ReadKey();
     }
 

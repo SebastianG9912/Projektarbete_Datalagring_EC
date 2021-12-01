@@ -30,7 +30,7 @@ namespace Backend.Data
                 .IsUnique();
         }
 
-        public static void Seed()
+        public void Seed()
         {
             using var ctx = new RestaurantDbContext();
 
