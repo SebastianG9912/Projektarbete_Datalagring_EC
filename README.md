@@ -6,8 +6,8 @@
 > Användarnamn och lösenord är statiska (förprogrammerade)<br />
 > Användarnamn: admin<br />
 > Lösenord: password<br />
-> Använd appen "WinFormsFrontend" för att logga in och komma åt funktionerna
-> Testerna för admin klienten ligger i projektet "AdminClientTests"
+> Använd appen "WinFormsFrontend" för att logga in och komma åt funktionerna<br />
+> Testerna för admin klienten ligger i projektet "AdminClientTests"<br />
 
 ##### Client appen:
 
