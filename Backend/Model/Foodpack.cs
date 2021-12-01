@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+
 
 namespace Backend.Model
 {
@@ -14,6 +10,7 @@ namespace Backend.Model
         public string Category { get; set; }
         [Required]
         public Restaurant Restaurant { get; set; }
+        public string Name { get; set; }
         public Order? Order { get; set; }
         [Required]
         public double Price { get; set; }
