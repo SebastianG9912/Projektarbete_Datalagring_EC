@@ -34,6 +34,8 @@ namespace RestaurantClientTests
             List<Foodpack> list = RestaurantClient.SoldFoodboxes(1);
             string[] names = { "Beef Pie", "Vegetable Pie" };
 
+            Assert.NotEmpty(list);
+
             for (int i = 0; i < names.Length; i++)
                 Assert.Equal(names[i], list.ElementAt(i).Name);
         }
@@ -43,6 +45,8 @@ namespace RestaurantClientTests
         {
             List<Foodpack> list = RestaurantClient.UnsoldFoodboxes(2);
             string[] names = { "ChickenBurger", "ClassicBurger" };
+
+            Assert.NotEmpty(list);
 
             for (var i = 0; i < names.Length; i++)
                 Assert.Equal(names[i], list.ElementAt(i).Name);
