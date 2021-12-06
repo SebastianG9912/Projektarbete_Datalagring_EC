@@ -10,7 +10,8 @@
 > Testerna för admin klienten ligger i projektet "AdminClientTests"<br />
 
 ##### Client appen:
-
+> Vid inloggning, skriv email och lösenord på samma rad med mellanrum. <br />
+> Ett exempel inlogg som fungerar: Jakob@gmail.com 2345
 
 
 ##### Restaurang appen:
